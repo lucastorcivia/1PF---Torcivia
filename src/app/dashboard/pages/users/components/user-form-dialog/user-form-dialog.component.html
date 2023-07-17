@@ -1,0 +1,83 @@
+<h1 mat-dialog-title>Crear usuario</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm" class="grid">
+    <div class="col-6 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="name" matInput type="text" name="name" />
+        <mat-error *ngFor="let error of nameControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-6 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input formControlName="surname" matInput type="text" name="surname" />
+
+        <mat-error *ngFor="let error of surnameControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+    <div class="col-6 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Dni</mat-label>
+        <input formControlName="dni" matInput type="text" name="dni" />
+        <mat-error *ngFor="let error of dniControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="field col-6">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input [formControl]="emailControl" matInput type="email" name="email" />
+        <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-6 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Carrera</mat-label>
+        <input formControlName="carrera" matInput type="text" name="carrera" />
+        <mat-error *ngFor="let error of carreraControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-2 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Parcial 1</mat-label>
+        <input formControlName="nota_1" matInput type="text" name="nota_1" />
+        <mat-error *ngFor="let error of nota1Control.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-2 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Parcial 2</mat-label>
+        <input formControlName="nota_2" matInput type="text" name="nota_2" />
+        <mat-error *ngFor="let error of nota2Control.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-2 field">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Final</mat-label>
+        <input formControlName="final" matInput type="text" name="final" />
+        <mat-error *ngFor="let error of finalControl.errors | keyvalue">
+          {{ error | controlErrorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div class="flex justify-content-end" mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button (click)="onSubmit()" type="submit" mat-button>Guardar</button>
+</div>

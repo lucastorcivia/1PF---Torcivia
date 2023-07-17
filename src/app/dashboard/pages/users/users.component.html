@@ -1,0 +1,13 @@
+<div class="mb-5">
+  <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">
+    <mat-icon>add</mat-icon>
+    Crear usuario
+  </button>
+</div>
+
+<p>Fecha actual: {{ today | date: 'fullDate' }}</p>
+<app-users-table
+  [dataSource]="users"
+  (deleteUser)="onDeleteUser($event)"
+  (editUser)="onEditUser($event)"
+></app-users-table>
